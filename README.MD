@@ -10,11 +10,11 @@
     - Isso servirá para melhorar a minha lógica e conhecimento sobre essas linguagens no geral
 
 ## Estrugura do projeto
-
+```
 📁 project
 ├── C `códigos em C`
 ├── Java `códigos em Java`
 ├── Python `códigos em Python`
 ├── README.MD
 └── Rust `códigos em Rust`
-
+```
