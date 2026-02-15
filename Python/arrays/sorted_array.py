@@ -43,3 +43,27 @@ class SortedArray:
     def traverse(self, callback):
         for i in range(self._size):
             callback(self._array[i])      
+    
+    def linear_search(self, target):
+        for i in range(self._size):
+            if self._array[i] == target:
+                return i
+            elif self._array[i] > target:
+                return None
+        return None
+    
+    def binary_search(self, target):
+        left = 0
+        right = self._size - 1
+        
+        while left <= right:
+            mid_index = (left + right) // 2
+            mid_val = self._array[mid_index]
+            
+            if mid_val == target:
+                return mid_index
+            elif mid_val > target:
+                right = mid_index - 1
+            else:
+                left = mid_index + 1
+        return None
