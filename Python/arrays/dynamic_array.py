@@ -44,5 +44,23 @@ class DynamicArray:
         self._array = Array(self._capacity / 2, self._typecode)
         for i in range(self._size):
             self._array[i] = old_array[i]    
+    
+    def delete_by_index(self, index):
+        if self._size == 0:
+            raise ValueError("The array is empty")
+        
+        elif index < 0 or index >= self._size:
+            raise ValueError("Out of index")
+        
+        else:
+            self._array[index] = self._array[self._size - 1]
+            self._size -= 1
+        
+        if self._capacity > 1 and self._size <= self._capacity/4:
+            self._halve_size()
+    
+    def traverse(self, callback):
+        for i in range(self._size):
+            callback(self._array[i])
         
         
