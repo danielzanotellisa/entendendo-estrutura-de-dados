@@ -1,4 +1,4 @@
-from linked_lists.node import Node
+from node import Node
 
 class SinglyLinkedList:
     def __init__(self):
@@ -66,4 +66,29 @@ class SinglyLinkedList:
         else:
             self._head = new_head
             return current_head.data()
+    
+    def traverse(self, callback):
+        current = self._head
+        
+        if current is None:
+            raise ValueError("The list is empty")
+        
+        while current is not None:
+            callback(current.data())
+            current = current.next()
+
+def main():
+    list = SinglyLinkedList()
+    list.append(1)
+    list.append(2)
+    list.append(3)
+    
+    list.traverse(print)
+    
+    list.delete_from_front()
+    print('\n')
+    list.traverse(print)
+    
+if __name__ == '__main__':
+    main()
             
