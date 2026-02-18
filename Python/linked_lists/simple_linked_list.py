@@ -39,5 +39,31 @@ class SinglyLinkedList:
             self.search_recursive(current.next(), target)
     
     def delete(self, target):
-        pass
+        current = self._head
+        previous = None
+        
+        while current is not None:
+            if current.data() == target:
+                if previous is None:
+                    self._head = current.next()
+                else:
+                    previous.append(current.next())
+                return
+            previous = current
+            current = current.next()
+        raise ValueError("Target not in the list")
+    
+    def delete_from_front(self):
+        current_head = self._head
+        if current_head is None:
+            raise ValueError("The list is empty")
+        
+        new_head = current_head.next()
+        
+        if new_head is None:
+            self._head = None
+            return current_head.data()
+        else:
+            self._head = new_head
+            return current_head.data()
             
